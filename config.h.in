@@ -1,0 +1,14 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#define HAVE_JS_GET_STRING_CHARS_AND_LENGTH 1
+#define JSSCRIPT_TYPE JSObject*
+#define COUCHJS_NAME "@PROJECT_NAME@"
+
+#define PACKAGE "couchjs-standalone"
+#define PACKAGE_BUGREPORT "https://github.com/ZaWertun/couchjs-standalone/issues"
+#define PACKAGE_NAME "couchjs-standalone"
+#define PACKAGE_STRING "couchjs-standalone @PROJECT_VERSION@"
+#define PACKAGE_VERSION "@PROJECT_VERSION@"
+
+#endif // CONFIG_H
