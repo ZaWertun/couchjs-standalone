@@ -206,8 +206,7 @@ seal(JSContext* cx, unsigned int argc, JS::Value* vp)
         args.rval().setUndefined();
         return true;
     }
-    bool deep = false;
-    deep = args[1].toBoolean();
+    bool deep = args.hasDefined(1) && JS::ToBoolean(args[1]);
     bool ret = deep ? JS_DeepFreezeObject(cx, target) : JS_FreezeObject(cx, target);
     args.rval().setUndefined();
     return ret;
