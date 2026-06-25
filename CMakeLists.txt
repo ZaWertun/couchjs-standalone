@@ -12,7 +12,8 @@ else()
     pkg_search_module(MOZJS REQUIRED mozjs-60
                                      mozjs-68
                                      mozjs-78 mozjs-86 mozjs-91
-                                     mozjs-102 mozjs-115 mozjs-128 mozjs-140)
+                                     mozjs-102 mozjs-115 mozjs-128
+                                     mozjs-140)
 endif()
 message(STATUS "Found ${MOZJS_MODULE_NAME} (version: ${MOZJS_VERSION}, include: ${MOZJS_INCLUDE_DIRS}): all is ok!")
 
@@ -23,8 +24,10 @@ elseif(SOURCE_VERSION VERSION_GREATER_EQUAL "60" AND SOURCE_VERSION VERSION_LESS
     set(SOURCE_VERSION "60")
 elseif(SOURCE_VERSION VERSION_GREATER_EQUAL "78" AND SOURCE_VERSION VERSION_LESS "102")
     set(SOURCE_VERSION "86")
-elseif(SOURCE_VERSION VERSION_GREATER_EQUAL "102")
+elseif(SOURCE_VERSION VERSION_GREATER_EQUAL "102" AND SOURCE_VERSION VERSION_LESS "140")
     set(SOURCE_VERSION "102")
+elseif(SOURCE_VERSION VERSION_GREATER_EQUAL "140")
+    set(SOURCE_VERSION "140")
 endif()
 
 if(SOURCE_VERSION STREQUAL "1.8.5")
