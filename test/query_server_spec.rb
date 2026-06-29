@@ -23,6 +23,9 @@
 COUCH_ROOT = "#{File.dirname(__FILE__)}/../.." unless defined?(COUCH_ROOT)
 LANGUAGE = ENV["QS_LANG"] || "js"
 
+COUCHJS_PATH = ENV["COUCHJS_PATH"] || "#{COUCH_ROOT}/bin/"
+MAINJS_PATH = ENV["MAINJS_PATH"] || "#{COUCH_ROOT}/share/server/"
+
 puts "Running query server specs for #{LANGUAGE} query server"
 
 require 'rspec'
@@ -116,7 +119,7 @@ end
 class QueryServerRunner < OSProcessRunner
 
   COMMANDS = {
-    "js" => "#{COUCH_ROOT}/bin/couchjs #{COUCH_ROOT}/share/server/main.js",
+    "js" => "#{COUCHJS_PATH}/couchjs #{MAINJS_PATH}/main.js",
     "erlang" => "#{COUCH_ROOT}/test/view_server/run_native_process.es"
   }
 

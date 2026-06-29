@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
+set(CMAKE_SKIP_TEST_ALL_DEPENDENCY FALSE)
+
 project(couchjs
         VERSION 1.0.0
         LANGUAGES CXX)
@@ -42,6 +44,19 @@ endif()
 
 configure_file(${PROJECT_SOURCE_DIR}/config.h.in
                ${PROJECT_BINARY_DIR}/config.h)
+
+enable_testing()
+find_program(RSPEC_FOUND rspec HINTS ENV PATH)
+if(RSPEC_FOUND)
+    add_test(NAME query_server_spec
+             COMMAND rspec ${PROJECT_SOURCE_DIR}/test/query_server_spec.rb
+             WORKING_DIRECTORY ${PROJECT_BINARY_DIR})
+    set_tests_properties(query_server_spec
+                         PROPERTIES
+                         ENVIRONMENT "COUCHJS_PATH=.;MAINJS_PATH=./server")
+else()
+    message(WARNING "Ruby rspec not found in $PATH - it's required to run tests")
+endif()
 
 add_executable(${PROJECT_NAME} ${TARGET_SOURCES})
 
