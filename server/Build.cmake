@@ -12,7 +12,6 @@ set(SERVER_FILES ${SOURCE_DIR}/dreyfus.js
                  ${SOURCE_DIR}/util.js
                  ${SOURCE_DIR}/validate.js
                  ${SOURCE_DIR}/views.js
-                 ${SOURCE_DIR}/coffee-script.js
                  ${SOURCE_DIR}/loop.js)
 message(STATUS "Building ${NAME} for MozJS-${VERSION}")
 if("${VERSION}" STREQUAL "1.8.5")
