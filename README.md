@@ -17,7 +17,9 @@ CouchJS original source code has been copied from https://github.com/apache/couc
 
 4. `make`
 
-5. `make install` (optional)
+5. `make test`
+
+6. `make install` (optional)
 
 ## Acknowledgements
 
