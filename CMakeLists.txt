@@ -64,7 +64,7 @@ INSTALL(TARGETS ${PROJECT_NAME}
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 target_include_directories(${PROJECT_NAME}
-                           PRIVATE ${PROJECT_BINARY_DIR} ${MOZJS_INCLUDE_DIRS})
+                           SYSTEM PRIVATE ${PROJECT_BINARY_DIR} ${MOZJS_INCLUDE_DIRS})
 target_compile_options(${PROJECT_NAME}
                        PRIVATE -fpermissive ${MOZJS_CFLAGS_OTHER})
 target_link_libraries(${PROJECT_NAME}
